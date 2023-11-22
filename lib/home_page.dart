@@ -111,58 +111,58 @@ class _HomePageState extends State<HomePage> {
                     .map((entry) => (book: entry.$2, index: entry.$1))
                     .map((entry) {
 
-                  final index = entry.index;
-                  final booksSize = books.length - 1;
+                      final index = entry.index;
+                      final booksSize = books.length - 1;
 
-                  final isAtRight = index.isOdd;
-                  final isAtLeft = index.isEven;
-                  final isAtTheBegin = index < 2;
-                  final isAtTheEnd = (booksSize.isOdd && (index == booksSize || index == booksSize - 1)) ||
-                      (booksSize.isEven && index == booksSize);
+                      final isAtRight = index.isOdd;
+                      final isAtLeft = index.isEven;
+                      final isAtTheBegin = index < 2;
+                      final isAtTheEnd = (booksSize.isOdd && (index == booksSize || index == booksSize - 1)) ||
+                          (booksSize.isEven && index == booksSize);
 
-                  return GestureDetector(
-                    onTap: () {
-                      Navigator.push(
-                          context,
-                          CupertinoPageRoute(builder: (context) => DetailPage(book: entry.book))
-                      );
-                    },
-                    child: Container(
-                        margin: EdgeInsets.only(
-                          right: isAtRight ? 20 : 10,
-                          left: isAtLeft ? 20 : 10,
-                        ),
-                        child: Column(
-                          children: [
-                            Column(
+                      return GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              CupertinoPageRoute(builder: (context) => DetailPage(book: entry.book))
+                          );
+                        },
+                        child: Container(
+                            margin: EdgeInsets.only(
+                              right: isAtRight ? 20 : 10,
+                              left: isAtLeft ? 20 : 10,
+                            ),
+                            child: Column(
                               children: [
-                                Container(
-                                  decoration: BoxDecoration(
-                                    border: Border.all(color: const Color(0xFF000000)),
+                                Column(
+                                  children: [
+                                    Container(
+                                      decoration: BoxDecoration(
+                                        border: Border.all(color: const Color(0xFF000000)),
+                                      ),
+                                      child: SizedBox(
+                                          height: deviceWidthPercentage(context, 35),
+                                          child: Image.network(entry.book.image ?? 'no-image')
+                                      ),
+                                    )
+                                  ],
+                                ),
+                                const SizedBox(height: 5),
+                                Text(
+                                  entry.book.title ?? 'No title',
+                                  style: const TextStyle(
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.bold,
+                                    color: Color(0xFF676767),
                                   ),
-                                  child: SizedBox(
-                                      height: deviceWidthPercentage(context, 35),
-                                      child: Image.network(entry.book.image ?? 'no-image')
-                                  ),
-                                )
+                                  textAlign: TextAlign.center,
+                                  // maxLines: 1,
+                                ),
                               ],
-                            ),
-                            const SizedBox(height: 5),
-                            Text(
-                              entry.book.title ?? 'No title',
-                              style: const TextStyle(
-                                fontSize: 15,
-                                fontWeight: FontWeight.bold,
-                                color: Color(0xFF676767),
-                              ),
-                              textAlign: TextAlign.center,
-                              // maxLines: 1,
-                            ),
-                          ],
-                        )
-                    ),
-                  );
-                }).toList()
+                            )
+                        ),
+                      );
+                    }).toList()
               ),
             )
           ],

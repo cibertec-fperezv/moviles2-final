@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "202047020695",
+    "project_id": "cibertec-653ee",
+    "storage_bucket": "cibertec-653ee.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:202047020695:android:42bc4228fd6125140353d2",
+        "android_client_info": {
+          "package_name": "com.example.dam_ii_final"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDagz-kPZkHJ8tfMLg1nv0YEZMnaROOHH4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

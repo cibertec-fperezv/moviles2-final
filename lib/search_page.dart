@@ -52,11 +52,13 @@ class _SearchPageState extends State<SearchPage> {
                                 setState(() {
                                   book = BookResponse.fromJson(jsonDecode(response.body));
 
-                                  existsBook(book!).then((optionalBook) {
-                                    if (optionalBook.size == 0) {
-                                      addBook(book!);
-                                    }
-                                  });
+                                  if (book!.error?.isEmpty ?? true) {
+                                    existsBook(book!).then((optionalBook) {
+                                      if (optionalBook.size == 0) {
+                                        addBook(book!);
+                                      }
+                                    });
+                                  }
                                 });
                               });
                             }
